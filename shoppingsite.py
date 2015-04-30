@@ -63,9 +63,11 @@ def shopping_cart():
     # TODO: Display the contents of the shopping cart.
     #   - The cart is a list in session containing melons added
     # this is where our query lives.
+    if 'cart' in session:
 
 
-    return render_template("cart.html")
+
+    return render_template("cart.html", cart=cart)
 
 
 @app.route("/add_to_cart/<int:id>")
@@ -79,7 +81,10 @@ def add_to_cart(id):
     # TODO: Finish shopping cart functionality
     #   - use session variables to hold cart list
 
-    session['melon_id'] = id
+
+    
+
+    session['cart'] = new_melon
 
 
     return redirect("/cart")
